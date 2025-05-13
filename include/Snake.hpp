@@ -26,4 +26,6 @@ class Snake {
 		
 		bool eat(Cell &cell);
 		void move();
+
+		int get_score();
 };

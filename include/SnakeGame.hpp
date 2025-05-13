@@ -21,7 +21,7 @@ class SnakeGame {
 
 	public:
 		SnakeGame(int size, class Snake &snake);
-		SnakeGame(int size, class Snake &snake, int starting_pos[2]);
+		SnakeGame(int size, class Snake &snake, const int (&starting_pos)[2]);
 
 		void map_field();
 		Cell &get_cell(int pos[2]);

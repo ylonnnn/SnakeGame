@@ -68,7 +68,6 @@ bool Snake::eat(Cell &cell) {
 void Snake::move() {
 	// If the direction of the snake is none, the snake will not move
 	// Default State
-	std::cout << direction << " : " << MovementDirection::None << "\n";
 	if (direction == MovementDirection::None)
 		return;
 
@@ -105,3 +104,5 @@ void Snake::move() {
 	// The score will always be less by 1 compared to the actual length as the score starts at 0 while the snake's length starts at 1
 	if (snake_len > score) body.pop_back();
 }
+
+int Snake::get_score() { return score; }

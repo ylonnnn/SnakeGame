@@ -18,7 +18,7 @@ SnakeGame::SnakeGame(int size, class Snake &snake) : size(size), snake(snake), e
 	starting_pos[0] = 0, starting_pos[1] = 0;
 }
 
-SnakeGame::SnakeGame(int size, class Snake &snake, int pos[2]) : size(size), snake(snake), ended(false) {
+SnakeGame::SnakeGame(int size, class Snake &snake, const int (&pos)[2]) : size(size), snake(snake), ended(false) {
 	snake.initialize(*this);
 	initialize_field();
 
@@ -69,6 +69,9 @@ void SnakeGame::map_field() {
 	}
 
 	std::cout << h_line << "\n";
+
+	// Display the score of the snake 
+	std::cout << "SCORE: " << snake.get_score() << "\n";
 } 
 
 Cell &SnakeGame::get_cell(int pos[2]) {
@@ -170,6 +173,9 @@ void SnakeGame::start() {
 		std::this_thread::sleep_for(std::chrono::milliseconds(450));
 	}
 
+	// Clear the screen
+	std::cout << "\033[2J\033[1;1H";
+
 	end();
 }
 
@@ -178,5 +184,5 @@ void SnakeGame::attempt_terminate() {
 }
 
 void SnakeGame::end() {
-	std::cout << "GAME OVER!\n";
+	std::cout << "GAME OVER!\nYou scored " << snake.get_score() << "\n";
 } 
