@@ -11,7 +11,7 @@ const int STARTING_POSITION[2] = { 3, 5 };
 
 int main() {
 	class Snake snake;
-	SnakeGame game(10, snake, STARTING_POSITION);
+	SnakeGame game(FIELD_SIZE, snake, STARTING_POSITION);
 
 	game.start();
 
